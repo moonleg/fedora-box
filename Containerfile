@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora:43
+FROM https://quay.io/fedora/fedora:43
 
 LABEL project="fedora-box"
 LABEL os="fedora"
@@ -18,10 +18,7 @@ RUN dnf install -y \
     git \
     zsh \
     vim \
-#    unzip \
     gzip \
-#    openssh \
-#    cc \
     && dnf clean all
 
 COPY vimrc /root/.vimrc
@@ -40,5 +37,7 @@ RUN mkdir -p /home/batman/data && \
     chmod 755 /home/batman/data
 
 USER batman
+
+ENTRYPOINT ["/bin/zsh"]
 
 CMD ["sleep", "infinity"]
