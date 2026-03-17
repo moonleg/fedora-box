@@ -37,4 +37,3 @@ USER batman
 
 ENTRYPOINT ["/bin/zsh", "-c", "sleep infinity"]
 CMD ["-l"]
-# CMD ["sleep", "infinity"]
