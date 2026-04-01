@@ -28,13 +28,19 @@ RUN useradd -m -u 1000 -s /bin/zsh batman && \
 
 RUN rm -f /home/batman/.zshrc
 
+
 COPY --chown=root:root vimrc /root/.vimrc
 COPY --chown=batman:batman vimrc /home/batman/.vimrc
 COPY --chown=batman:batman zshrc /home/batman/.zshrc
+#COPY --chown=batman:batman ~/.ssh/config ./ssh/config && chmod 0600 /home/batman/config
 
 RUN mkdir -p /home/batman/data && \
     chown -R 1000:1000 /home/batman/data && \
     chmod 755 /home/batman/data
+
+RUN mkdir -p /home/batman/.ssh && \
+    chown -R 1000:1000 /home/batman/.ssh && \
+    chmod 0700 /home/batman/.ssh
 
 USER batman
 

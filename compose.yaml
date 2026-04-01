@@ -22,3 +22,4 @@ services:
       - EDITOR=vim
     volumes:
       - ./data:/home/batman/data:z
+      - ~/.ssh:/home/batman/.ssh:z
