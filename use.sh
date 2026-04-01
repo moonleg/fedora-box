@@ -1,20 +1,21 @@
 #!/bin/bash
 
-CONTAINER_NAME="fedora-box"
+source ./config.sh
 
 STATUS=$(podman inspect "$CONTAINER_NAME" --format '{{.State.Status}}' 2>/dev/null)
 
 if [ -z "$STATUS" ]; then
-    echo "Container '$CONTAINER_NAME' does not exist. Deploying now..."
+    echo -e "${GREEN}--=[ Container '$CONTAINER_NAME' does not exist. Deploying now... ]=--${NC}"
     ./deploy.sh 
     STATUS=$(podman inspect "$CONTAINER_NAME" --format '{{.State.Status}}' 2>/dev/null)
 fi
 
 if [ "$STATUS" != "running" ]; then
-    echo "Starting $CONTAINER_NAME..."
+    echo -e "${GREEN}--=[ Starting $CONTAINER_NAME... ]=--${NC}"
     podman start "$CONTAINER_NAME"
 fi
 
 echo ""
-echo "--=[ Entering $CONTAINER_NAME ]=--"
+echo -e "${BLUE}--=[ Entering $CONTAINER_NAME ]=--${NC}"
+echo ""
 podman exec -it "$CONTAINER_NAME" /bin/zsh

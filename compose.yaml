@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-  fedora-box:
+  toolbox:
     build:
       context: .
       dockerfile: Containerfile
-    container_name: fedora-box
-    image: fedora-box:1.0
+    container_name: toolbox
+    image: toolbox:1.1
     hostname: toolbox
     stdin_open: true
     tty: true

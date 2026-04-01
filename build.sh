@@ -1,27 +1,26 @@
 #!/bin/bash
 
 # Configuration
-IMAGE_NAME="localhost/fedora-box:1.0"
-CONTAINER_NAME="fedora-box"
+source ./config.sh
 
-echo "--=[ Preparing data directory ]=--"
+echo -e "${GREEN}--=[ Preparing data directory ]=--${NC}"
 mkdir -p data  
 chmod 0755 data
 chown -R 1000:1000 data 
 
-echo "--=[ Cleaning up old container ]=--"
+echo -e "${GREEN}--=[ Cleaning up old container ]=--${NC}"
 podman stop $CONTAINER_NAME 2>/dev/null || true
 podman rm $CONTAINER_NAME 2>/dev/null || true
 
-echo "--=[ Cleaning up old image versions ]=--"
+echo -e "${GREEN}--=[ Cleaning up old image versions ]=--${NC}"
 podman image prune -f --filter "label=project=""$CONTAINER_NAME" --filter "dangling=true"
-echo "Build and cleanup complete."
+echo -e "${GREEN}--=[ Build and cleanup complete ]=--${NC}"
 
-echo "--=[ Building $IMAGE_NAME ]=--"
+echo -e "${GREEN}--=[ Building $IMAGE_NAME ]=--${NC}"
 if podman build --no-cache -t "$IMAGE_NAME" -f Containerfile .; then
-    echo "Successfully built $IMAGE_NAME"
+    echo -e "${BLUE}--=[ Successfully built $IMAGE_NAME ]=--${NC}"
 else
-    echo "--=[ Build failed! ]=--"
+    echo -e "${RED}--=[ Build failed! ]=--${NC}"
     exit 1
 fi
 

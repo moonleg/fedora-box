@@ -1,16 +1,15 @@
 #!/bin/bash
 
-COMPOSE_FILE="compose.yaml"
-CONTAINER_NAME="fedora-box"
+source ./config.sh
 
-echo "--=[ Stopping and removing existing container ]=--"
-podman-compose down
+echo -e "${GREEN}--=[ Stopping and removing existing container ]=--${NC}"
+podman stop "$CONTAINER_NAME"
 
-echo "--=[ Deploying new container instance ]=--"
-if podman-compose --in-pod=0 up -d; then
-    echo "--=[ Deployment Successful ]=--"
+echo -e "${GREEN}--=[ Deploying new container instance ]=--${NC}"
+if podman-compose --in-pod=false up -d; then
+    echo -e "${BLUE}--=[ Deployment Successful ]=--${NC}"
     podman ps --filter "name=$CONTAINER_NAME"
 else
-    echo "--=[ Deployment Failed! ]=--"
+    echo -e "${RED}--=[ Deployment Failed! ]=--${NC}"
     exit 1
 fi
