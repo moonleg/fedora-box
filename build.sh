@@ -18,7 +18,7 @@ echo -e "${GREEN}--=[ Build and cleanup complete ]=--${NC}"
 
 echo -e "${GREEN}--=[ Building $IMAGE_NAME ]=--${NC}"
 if podman build --no-cache -t "$IMAGE_NAME" -f Containerfile .; then
-    echo -e "${BLUE}--=[ Successfully built $IMAGE_NAME ]=--${NC}"
+    echo -e "${GREEN}--=[ Successfully built $IMAGE_NAME ]=--${NC}"
 else
     echo -e "${RED}--=[ Build failed! ]=--${NC}"
     exit 1

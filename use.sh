@@ -16,6 +16,6 @@ if [ "$STATUS" != "running" ]; then
 fi
 
 echo ""
-echo -e "${BLUE}--=[ Entering $CONTAINER_NAME ]=--${NC}"
+echo -e "${GREEN}--=[ Entering $CONTAINER_NAME ]=--${NC}"
 echo ""
 podman exec -it "$CONTAINER_NAME" /bin/zsh

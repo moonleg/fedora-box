@@ -7,7 +7,7 @@ podman stop "$CONTAINER_NAME"
 
 echo -e "${GREEN}--=[ Deploying new container instance ]=--${NC}"
 if podman-compose --in-pod=false up -d; then
-    echo -e "${BLUE}--=[ Deployment Successful ]=--${NC}"
+    echo -e "${GREEN}--=[ Deployment Successful ]=--${NC}"
     podman ps --filter "name=$CONTAINER_NAME"
 else
     echo -e "${RED}--=[ Deployment Failed! ]=--${NC}"
