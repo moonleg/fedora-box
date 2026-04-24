@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export IMAGE_NAME="localhost/toolbox:1.1"
+export IMAGE_NAME="localhost/toolbox:1.2"
 export CONTAINER_NAME="toolbox"
 
 export GREEN='\033[1;32m'

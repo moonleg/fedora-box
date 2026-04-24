@@ -4,7 +4,7 @@ LABEL project="toolbox" \
       os="fedora" \
       type="testing" \
       maintainer="yourname@example.com" \
-      version="1.1"
+      version="1.2"
 
 RUN dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
     && dnf install -y https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
