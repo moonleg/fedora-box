@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora:latest
+FROM quay.io/fedora/fedora:44
 
 LABEL project="toolbox" \
       os="fedora" \
