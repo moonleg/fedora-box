@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Containerfile
     container_name: fedora-box
-    image: fedora-box:latest
+    image: fedora-box:1.0
     hostname: fedora-box
     stdin_open: true
     tty: true
