@@ -3,10 +3,10 @@
 # Configuration
 source ./config.sh
 
-echo -e "${GREEN}--=[ Preparing data directory ]=--${NC}"
-mkdir -p data  
-chmod 0755 data
-chown -R 1000:1000 data 
+echo -e "${GREEN}--=[ Preparing shared directory ]=--${NC}"
+mkdir -p shared  
+chmod 0755 shared
+chown -R 1000:1000 shared 
 
 echo -e "${GREEN}--=[ Cleaning up old container ]=--${NC}"
 podman stop $CONTAINER_NAME 2>/dev/null || true

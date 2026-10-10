@@ -1,6 +1,6 @@
 FROM quay.io/fedora/fedora:44
 
-LABEL project="toolbox" \
+LABEL project="fedora-box" \
       os="fedora" \
       type="testing" \
       maintainer="yourname@example.com" \

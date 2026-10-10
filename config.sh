@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export IMAGE_NAME="localhost/toolbox:1.2"
-export CONTAINER_NAME="toolbox"
+export IMAGE_NAME="localhost/fedora-box:latest"
+export CONTAINER_NAME="fedora-box"
 
 export GREEN='\033[1;32m'
 export RED='\033[1;31m'
